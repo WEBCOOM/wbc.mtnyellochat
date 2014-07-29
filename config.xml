@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "wbc.moovbj"
+        id = "wbc.mtnbj"
         version = "1.0.0">
 
-    <name>Moov Help Desk</name>
+    <name>Y'ello Chat</name>
 
     <description>
-        Cette application vous permet d'avoir accès au informations utiles de Moov sans avoir a appeler le service client.
+        Cette application vous permet d'avoir accès au informations utiles de Mtn sans avoir a appeler le service client.
     </description>
 
     <author href="http:/webcoom.net" email="techs@webcoom.net">
@@ -34,7 +34,7 @@
     -->
 
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version"           value="2.9.0" />          <!-- all: current version of PhoneGap -->
+    <preference name="phonegap-version"           value="3.5.0" />          <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
