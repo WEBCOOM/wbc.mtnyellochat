@@ -5,7 +5,7 @@
 	background-image: url("../img/mtn/topbg.jpg");
     height: 70px;
     width: 100%;
-	border-bottom: 3px solid black;
+	border-bottom: 3px solid #333333;
 	border-top:0px ;
 }
 .jqm-demos .jqm-header h2 {
@@ -777,7 +777,7 @@
 }
 body,p,li{
     font-family: verdana;
-    font-size: 14px;    
+    font-size: 15px;    
     text-shadow: 1px 0px 1px #403D3B;
     
 }
