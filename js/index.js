@@ -574,8 +574,8 @@ function goChat() {
             document.getElementById("email").focus();
             return;
         }
-        var host="10.41.14.249:8080";
-        //var host="41.74.10.73:8465";
+        //var host="10.41.14.249:8080";
+        var host="41.74.10.73:8465";
 var url="http://"+host+"/ChatServer/guest/application.jsp?lang="+document.getElementById("lang").value+"&clientType=GUEST&userName="+document.getElementById("username").value +"&flag="+(new Date().getTime())+"&userEmail="
                 +document.getElementById("email").value+"&attachedData={\\\"CHATTYPE\\\": \\\""+document.getElementById("brand").value+"\\\",\\\"REGNUM\\\": \\\"111222333\\\",\\\"CUSTOMERNAME\\\": \\\"Johny Walker\\\"}"
   ;
