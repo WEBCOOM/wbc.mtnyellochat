@@ -16,7 +16,7 @@ var lastID = -1; //initial value will be replaced by the latest known id
 window.onload = initJavaScript;
 
 function initJavaScript() {
-	document.forms['chatForm'].elements['chatbarText'].setAttribute('autocomplete','off'); //this non standard attribute prevents firefox' autofill function to clash with this script
+	//document.forms['chatForm'].elements['chatbarText'].setAttribute('autocomplete','off'); //this non standard attribute prevents firefox' autofill function to clash with this script
 	checkStatus(''); //sets the initial value and state of the input comment
 	checkName(); //checks the initial value of the input name
 	receiveChatText(); //initiates the first data query
