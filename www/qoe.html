@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MOOV HELP DESK</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.4.0.min.css">
+	<link rel="stylesheet" href="css/jqm-demos.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/c.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/fastclick.js"></script>
+	<script src="js/jquery.mobile-1.4.0.min.js"></script>
+	<script src="js/scripts.js" language="JavaScript" type="text/javascript"></script>
+</head>
+<body>
+<div data-role="page" class="jqm-demos jqm-home">
+
+	<div data-role="header" class="jqm-header" id="header"></div><!-- /header -->
+
+	<div role="main" class="ui-content jqm-content" id="chatmain">
+
+
+
+     <h2 style="color:#FEB302">Votre avis nous interresse</h2>
+     <form name="qoe" action="127.0.0.1/mtn/qoef.php" method="post">
+         
+     
+    <label>Nom et prénom<input id="username" type="text" class="form-control"></label>
+    <label>Téléphone<input id="email" type="text" class="form-control"></label>
+    
+    
+    <fieldset data-role="controlgroup">
+        <legend>Context</legend>
+        <input name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" type="radio">
+        <label for="radio-choice-1">Client</label>
+        <input name="radio-choice-1" id="radio-choice-2" value="choice-2" type="radio">
+        <label for="radio-choice-2">Call center</label>
+        <input name="radio-choice-1" id="radio-choice-3" value="choice-3" type="radio">
+        <label for="radio-choice-3">Franchise</label>
+        <input name="radio-choice-1" id="radio-choice-4" value="choice-4" type="radio">
+        <label for="radio-choice-4">Autre</label>
+        
+        
+    </fieldset>
+    <label for="textarea">Avis</label>
+    <textarea cols="40" rows="10" name="textarea" id="textarea"></textarea>
+    </form>
+        <p><input class="btn btn-success" type="button" value="Envoyer" onclick="javascript:goQoe()"/></p>
+
+        
+        
+	</div><!-- /content -->
+	
+	    <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a" id="panel">
+		</div><!-- /panel -->
+
+
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b" id="cfooter">
+</div><!-- /footer -->
+
+</div><!-- /page -->
+
+</body>
+</html>

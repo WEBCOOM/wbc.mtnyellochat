@@ -1,0 +1,145 @@
+xbody {
+	font-family: helvetica, sans-serif;
+	margin:0px;
+	padding:0px;
+	font-size: 0.8em;
+	text-align: left;
+	background-color: #567B9B;
+}
+
+#xheader {
+	padding:10px;
+	background:url(images/head.png) repeat-x left bottom;
+	padding-bottom: 20px;
+}
+
+#credit {
+	float:right;
+	color:#567B9B;
+	line-height: 130%;
+	background:url(images/logo.png) no-repeat left top;
+	padding-left:85px;
+	height: 100px;
+}
+
+#credit h1 {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin:0px;
+	padding:0px;
+	margin-bottom:0.3em;
+	margin-right:90px;
+}
+
+#credit p {
+	margin:0px;
+	padding:0px;
+	font-weight: normal;
+	line-height: 100%;
+	margin-right:90px;	
+}
+
+#credit a, #credit a:visited  {
+	color:#567B9B;
+}
+
+xinput {
+	margin-right: 8px;
+}
+
+xh2 {
+	display: none;
+}
+
+xh3 {
+	font-size: 1em;
+	color: #FFD039;
+	font-weight: bold;
+	padding: 0px;
+	margin:1.5em 0px 0.5em 0px;
+}
+
+#description p {
+	color: #DDE2F2;
+	font-size: 1em;
+	margin:0.5em 0px 0.5em 0px;
+}
+
+#description a, #description a:hover, #description a:visited {
+	color: #FFF;
+}
+
+#description a:hover {
+	color: #F0F2CA;
+}
+
+#chatoutput ul {
+	list-style: none;
+	margin:0px;
+	padding:0px;
+	padding:8px 10px 15px 8px;
+}
+
+#chatoutput ul li {
+	background:#ddd ;
+	padding:8px 12px 12px 12px;
+/*	font-weight: bold;*/
+	margin:0px;
+	color:#000;
+	line-height: 100%;
+	margin-bottom:8px;
+}
+
+#chatoutput ul li span.name {
+	display: block;
+	background:url(images/bubble.png) no-repeat left;
+	padding-left:19px;
+	font-weight: bold;
+	font-size: 0.6em;
+	text-transform: uppercase;
+	color: #3eb249;
+}
+
+#chatoutput ul li:hover span.name {
+	color: #333;
+	background:url(images/bubblehover.png) no-repeat left;
+}
+
+xform {
+	padding:0px;
+	margin:5px;
+}
+
+xlabel {
+	color: #567B9B;
+	display: block;
+	margin-top:7px;
+	margin-bottom: 3px;
+	font-weight: bold;
+}
+
+#chatoutput {
+	text-align: left;
+/*	margin-right: 250px;*/
+	max-height:300px;
+	overflow:auto;
+}
+
+#description {
+	float: right;
+	width: 235px;
+	padding-right: 10px;
+	padding-left: 5px;
+	color: #DDE2F2;
+	line-height: 130%;
+}
+
+#description ul {
+	margin:0px;
+	padding:0px;
+	padding-left: 1.5em;
+}
+
+#description ul li {
+	margin-bottom: 0.4em;
+}
