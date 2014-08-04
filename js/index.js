@@ -1129,7 +1129,7 @@ else { localStorage.setItem('numero',$('#numero').val());
 };
 });
 });
-        app.initialize();
+        //app.initialize();
         $(function() {
             FastClick.attach(document.body);
         });
@@ -1151,6 +1151,7 @@ function goChat() {
 var url="http://"+host+"/ChatServer/guest/application.jsp?lang="+document.getElementById("lang").value+"&clientType=GUEST&userName="+document.getElementById("username").value +"&flag="+(new Date().getTime())+"&userEmail="
                 +document.getElementById("email").value+"&attachedData={\\\"CHATTYPE\\\": \\\""+document.getElementById("brand").value+"\\\",\\\"REGNUM\\\": \\\"111222333\\\",\\\"CUSTOMERNAME\\\": \\\"Johny Walker\\\"}"
   ;
+  
         var ref = window.open(url, '_blank', 'location=yes');
         ref.addEventListener('loadstop', function() {
             alert("Css injection");
