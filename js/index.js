@@ -926,7 +926,7 @@ $( document ).on( "pagebeforecreate", function() {
 <li data-icon="home"><a href="index.html" data-ajax="false">Home</a></li>\
 <li><a href="chat.html" data-ajax="false"id="hd" data-theme="b" >Y\'ello Chat</a></li>\
 <li><a href="qoe.html" data-ajax="false"id="hd" data-theme="b" >Boîte à suggestions</a></li>\
-<li><a href="services.html#momo" data-ajax="false">Mobile Money</a></li>\\n\
+<li><a href="services.html#momo" data-ajax="false">Mobile Money</a></li>\
 <li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false">\
 	<h3>Produits & Services</h3>\
 	<ul>\
