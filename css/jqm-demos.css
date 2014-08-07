@@ -1,31 +1,30 @@
 /* JQM Demos custom CSS */
-
 @font-face {
-font-family: 'Roboto';
-font-style: normal;
-font-weight: normal;
-src: local('Open Sans'), local('OpenSans'), url('../fonts/Roboto-Black.ttf') format('truetype');
+    font-family: 'Roboto';
+    src:  url('../fonts/Roboto-Regular.ttf')  format('truetype');
 }
 /* Header */
 .jqm-demos .jqm-header {
-	background-image: url("../img/mtn/topbg.jpg");
-    height: 70px;
-    width: 100%;
-	border-bottom: 3px solid #333333;
-	border-top:0px ;
+    height: 60px;
+	background: #fff;
+    background-image: url("../img/mtn/topbg.jpg");
+	border-bottom: 2px solid #808080;
+        margin: 0px;
+        padding: 0px;
+
 }
 .jqm-demos .jqm-header h2 {
-/*	padding: .4em 0 .1em;*/
+	padding: .4em 0 .1em;
 	margin: 0 3em;
 }
 .jqm-demos .jqm-header h2 a {
 	display: inline-block;
 	text-decoration: none;
-	min-height: 35px;
+	min-height: 40px;
 }
 .jqm-demos .jqm-header h2 img {
 	display: block;
-	width: 140px;
+	width: 90px;
 	height: auto;
 }
 .jqm-demos .jqm-header h2 > img {
@@ -265,7 +264,7 @@ src: local('Open Sans'), local('OpenSans'), url('../fonts/Roboto-Black.ttf') for
 	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
 	box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
 }
-.jqm-list .jqm-search-results-keywords {
+.jqm-list {
     padding: .46857em 0 0;
     font-size: .8em;
     font-weight: 300;
@@ -275,7 +274,7 @@ src: local('Open Sans'), local('OpenSans'), url('../fonts/Roboto-Black.ttf') for
 	overflow: hidden;
 	white-space: nowrap;
 }
-.ui-btn-active .jqm-search-results-keywords {
+.ui-btn-active  {
     color: #fff;
 }
 .jqm-search-results-highlight {
@@ -326,7 +325,7 @@ src: local('Open Sans'), local('OpenSans'), url('../fonts/Roboto-Black.ttf') for
 
 @media (min-width: 60em) {
 	.jqm-demos .jqm-header h2 {
-		padding: 1em 0 .7em;
+		padding: 5px 0 .7em;
 		margin: 0 1em 0 3%;
 		text-align: left;
 	}
@@ -545,203 +544,7 @@ src: local('Open Sans'), local('OpenSans'), url('../fonts/Roboto-Black.ttf') for
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
-.syntaxhighlighter a,
-.syntaxhighlighter div,
-.syntaxhighlighter code,
-.syntaxhighlighter table,
-.syntaxhighlighter table td,
-.syntaxhighlighter table tr,
-.syntaxhighlighter table tbody,
-.syntaxhighlighter table thead,
-.syntaxhighlighter table caption,
-.syntaxhighlighter textarea {
-	background: none;
-	border: 0;
-	bottom: auto;
-	float: none;
-	left: auto;
-	height: auto;
-	line-height: 18px;
-	margin: 0;
-	outline: 0;
-	overflow: visible;
-	padding: 0;
-	position: static;
-	right: auto;
-	text-align: left;
-	top: auto;
-	vertical-align: baseline;
-	width: auto;
-	box-sizing: content-box;
-	font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
-	font-weight: normal;
-	font-style: normal;
-	font-size: 14px;
-	min-height: inherit;
-	min-height: auto;
-}
-.syntaxhighlighter {
-	width: auto;
-	margin: 0;
-	padding: 1em 0;
-	position: relative;
-	overflow: auto;
-	font-size: 13px;
-}
-.syntaxhighlighter.source {
-	overflow: hidden;
-}
-.syntaxhighlighter .bold {
-	font-weight: bold;
-}
-.syntaxhighlighter .italic {
-	font-style: italic;
-}
-.syntaxhighlighter .line {
-	white-space: pre;
-	white-space: pre-wrap;
-}
-.syntaxhighlighter table {
-	width: 100%;
-}
-.syntaxhighlighter table caption {
-	text-align: left;
-	padding: .5em 0 0.5em 1em;
-}
-.syntaxhighlighter table td.code {
-	width: 100%;
-}
-.syntaxhighlighter table td.code .container {
-	position: relative;
-}
-.syntaxhighlighter table td.code .container textarea {
-	box-sizing: border-box;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	border: none;
-	background: white;
-	padding-left: 1em;
-	overflow: hidden;
-	white-space: pre;
-}
-.syntaxhighlighter table td.gutter .line {
-	text-align: right;
-	padding: 0 0.5em 0 1em;
-}
-.syntaxhighlighter table td.code .line {
-	padding: 0 1em;
-}
-.syntaxhighlighter.show {
-	display: block;
-}
-.syntaxhighlighter.collapsed table {
-	display: none;
-}
-.syntaxhighlighter .line.alt1 {
-	background-color: transparent;
-}
-.syntaxhighlighter .line.alt2 {
-	background-color: transparent;
-}
-.syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
-	background-color: #253e5a;
-}
-.syntaxhighlighter .line.highlighted.number {
-	color: #38566f;
-}
-.syntaxhighlighter table caption {
-	color: #d1edff;
-}
-.syntaxhighlighter .gutter {
-	color: #afafaf;
-}
-.syntaxhighlighter .gutter .line {
-	border-right: 3px solid #435a5f;
-}
-.syntaxhighlighter .gutter .line.highlighted {
-	background-color: #435a5f;
-	color: #0f192a;
-}
-.syntaxhighlighter.collapsed {
-	overflow: visible;
-}
-.syntaxhighlighter .plain, .syntaxhighlighter .plain a {
-	color: #eee;
-}
-.syntaxhighlighter .comments, .syntaxhighlighter .comments a {
-	color: #5ba1cf;
-}
-.syntaxhighlighter .string {
-	color: #98da31;
-}
-.syntaxhighlighter .string a {
-	color: #1dc116;
-}
-.syntaxhighlighter .keyword {
-	color: #ffae00;
-}
-.syntaxhighlighter .preprocessor {
-	color: #8aa6c1;
-}
-.syntaxhighlighter .variable {
-	color: #ffaa3e;
-}
-.syntaxhighlighter .value {
-	color: #f7e741;
-}
-.syntaxhighlighter .functions {
-	color: #ffaa3e;
-}
-.syntaxhighlighter .constants {
-	color: #e0e8ff;
-}
-.syntaxhighlighter .script {
-	font-weight: bold;
-	color: #b43d3d;
-	background-color: none;
-}
-.syntaxhighlighter .color1 {
-	color: #8df;
-}
-.syntaxhighlighter .color1 a {
-	color: #f8bb00;
-}
-.syntaxhighlighter .color2, .syntaxhighlighter .color2 a {
-	color: white;
-}
-.syntaxhighlighter .color3, .syntaxhighlighter .color3 a {
-	color: #ffaa3e;
-}
-.syntaxhighlighter table td.code {
-	cursor: text;
-}
-.syntaxhighlighter table td.code .container textarea {
-	background: #eee;
-	white-space: pre;
-	white-space: pre-wrap;
-}
-.syntaxhighlighter ::-moz-selection {
-	background-color: #3399ff;
-	color: #fff;
-	text-shadow: none;
-}
-.syntaxhighlighter ::-webkit-selection {
-	background-color: #3399ff;
-	color: #fff;
-	text-shadow: none;
-}
-.syntaxhighlighter ::selection {
-	background-color: #3399ff;
-	color: #fff;
-	text-shadow: none;
-}
 
-.ui-title{
-	color: #00688F;}
-	
 .RateTableHeader {
 	border-right: solid 1px #ffffff;
 	font-family: Verdana;
@@ -761,80 +564,23 @@ src: local('Open Sans'), local('OpenSans'), url('../fonts/Roboto-Black.ttf') for
 	padding: 10px 0px 0px 0px;
 	text-align: right;
 }
-
-.index-blocs .ui-block-a{
-    width: 300px;
-    max-width: 300px;
-    margin-right: 5px;
-}
-
-.index-blocs .ui-block-b{
-    width: 300px;
-    max-width: 300px;
-    
-}
-.index-blocs >div{
-    margin-bottom: 5px; 
-}
-.index-blocs a{
-    
-    text-decoration: none;
-    font-size: 13px;
+.ui-title{
+    padding-top: 5px;
+    margin-top: 5px;
+    color: #00688F;
 }
 body,p,li{
-    font-family: verdana;
+    font-family: Roboto,verdana;
     font-size: 15px;    
     
 }
 
 table,tr,td{
-    font-family: verdana;
+    font-family: Roboto,verdana;
     font-size: 12px;    
     
 }
 ul ,li,ol{
-	list-style-image: url(../img/mtn/listBullet.gif);
+    list-style-image: url(../img/mtn/listBullet.gif);
 }
-
-.ContentSectionalH3a {
-    font-family: 'Open Sans',sans-serif;
-    font-weight: 300;
-background-color: #ffb300;
-font-size: 16px;
-font-style: italic;
-color: #272727;
-height: 29px;
-border-bottom: solid 3px #ffd166;
-padding: 0px 10px 0px 10px;
-margin: 0px;
-}
-
-.ComparitiveTableRow {
-font-family: Verdana;
-font-size: 11px;
-background-color: #fff7e5;
-color: #4c4c4c;
-height: 24px;
-border-bottom: solid 1px #e5e5e5;
-padding: 2px 10px 0px 10px;
-}
-td[Attributes Style] {
-width: 198px;
-vertical-align: top;
-}
-user agent stylesheettd, th {
-display: table-cell;
-vertical-align: inherit;
-}
-Inherited from table
-user agent stylesheettable {
-display: table;
-border-collapse: separate;
-border-spacing: 2px;
-border-color: gray;
-
-
-
-
-
 

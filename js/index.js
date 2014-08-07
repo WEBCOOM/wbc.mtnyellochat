@@ -172,52 +172,6 @@ $(function() {
 	});
 })( jQuery );
 
-// Turn off AJAX for local file browsing
-if ( location.protocol.substr(0,4)  === 'file' ||
-     location.protocol.substr(0,11) === '*-extension' ||
-     location.protocol.substr(0,6)  === 'widget' ) {
-
-	// Start with links with only the trailing slash and that aren't external links
-	var fixLinks = function() {
-		$( "a[href$='/'], a[href='.'], a[href='..']" ).not( "[rel='external']" ).each( function() {
-			if( !$( this ).attr( "href" ).match("http") ){
-				this.href = $( this ).attr( "href" ).replace( /\/$/, "" ) + "/index.html";
-			}
-		});
-	};
-
-	// Fix the links for the initial page
-	$( fixLinks );
-
-	// Fix the links for subsequent ajax page loads
-	$( document ).on( "pagecreate", fixLinks );
-
-	// Check to see if ajax can be used. This does a quick ajax request and blocks the page until its done
-	$.ajax({
-		url: '.',
-		async: false,
-		isLocal: true
-	}).error(function() {
-		// Ajax doesn't work so turn it off
-		$( document ).on( "mobileinit", function() {
-			$.mobile.ajaxEnabled = false;
-
-			var message = $( '<div>' , {
-				'class': "jqm-content",
-				style: "border:none; padding: 10px 15px; overflow: auto;",
-				'data-ajax-warning': true
-			});
-
-			message
-			.append( "<!--<h3>Note: Navigation may not work if viewed locally</h3>-->" )
-			.append( "<!--<p>The AJAX-based navigation used throughout the jQuery Mobile docs may need to be viewed on a web server to work in certain browsers. If you see an error message when you click a link, please try a different browser.</p>-->" );
-
-			$( document ).on( "pagecreate", function( event ) {
-				$( event.target ).append( message );
-			});
-		});
-	});
-}
 
 $( document ).on( "pagecreate", ".jqm-demos", function( event ) {
 	var search,
@@ -308,16 +262,6 @@ $( document ).on( "pagecreate", ".jqm-demos", function( event ) {
 	}
 });
 
-// Append keywords list to each list item
-$( document ).one( "pagecreate", ".jqm-demos", function( event ) {
-	$( this ).find( ".jqm-search-results-list li, .jqm-search li" ).each(function() {
-		var text = $( this ).attr( "data-filtertext" );
-
-		$( this )
-			.find( "a" )
-			.append( "<span class='jqm-search-results-keywords ui-li-desc'>" + text + "</span>" );
-	});
-});
 
 // Functions for highlighting text used for keywords highlight in search
 jQuery.fn.highlight = function( pat ) {
@@ -883,78 +827,6 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();
 
-;(function()
-{
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
-
-	function Brush()
-	{
-		var funcs	=	'abs acos acosh addcslashes addslashes ' +
-						'array_change_key_case array_chunk array_combine array_count_values array_diff '+
-						'array_diff_assoc array_diff_key array_diff_uassoc array_diff_ukey array_fill '+
-						'array_filter array_flip array_intersect array_intersect_assoc array_intersect_key '+
-						'array_intersect_uassoc array_intersect_ukey array_key_exists array_keys array_map '+
-						'array_merge array_merge_recursive array_multisort array_pad array_pop array_product '+
-						'array_push array_rand array_reduce array_reverse array_search array_shift '+
-						'array_slice array_splice array_sum array_udiff array_udiff_assoc '+
-						'array_udiff_uassoc array_uintersect array_uintersect_assoc '+
-						'array_uintersect_uassoc array_unique array_unshift array_values array_walk '+
-						'array_walk_recursive atan atan2 atanh base64_decode base64_encode base_convert '+
-						'basename bcadd bccomp bcdiv bcmod bcmul bindec bindtextdomain bzclose bzcompress '+
-						'bzdecompress bzerrno bzerror bzerrstr bzflush bzopen bzread bzwrite ceil chdir '+
-						'checkdate checkdnsrr chgrp chmod chop chown chr chroot chunk_split class_exists '+
-						'closedir closelog copy cos cosh count count_chars date decbin dechex decoct '+
-						'deg2rad delete ebcdic2ascii echo empty end ereg ereg_replace eregi eregi_replace error_log '+
-						'error_reporting escapeshellarg escapeshellcmd eval exec exit exp explode extension_loaded '+
-						'feof fflush fgetc fgetcsv fgets fgetss file_exists file_get_contents file_put_contents '+
-						'fileatime filectime filegroup fileinode filemtime fileowner fileperms filesize filetype '+
-						'floatval flock floor flush fmod fnmatch fopen fpassthru fprintf fputcsv fputs fread fscanf '+
-						'fseek fsockopen fstat ftell ftok getallheaders getcwd getdate getenv gethostbyaddr gethostbyname '+
-						'gethostbynamel getimagesize getlastmod getmxrr getmygid getmyinode getmypid getmyuid getopt '+
-						'getprotobyname getprotobynumber getrandmax getrusage getservbyname getservbyport gettext '+
-						'gettimeofday gettype glob gmdate gmmktime ini_alter ini_get ini_get_all ini_restore ini_set '+
-						'interface_exists intval ip2long is_a is_array is_bool is_callable is_dir is_double '+
-						'is_executable is_file is_finite is_float is_infinite is_int is_integer is_link is_long '+
-						'is_nan is_null is_numeric is_object is_readable is_real is_resource is_scalar is_soap_fault '+
-						'is_string is_subclass_of is_uploaded_file is_writable is_writeable mkdir mktime nl2br '+
-						'parse_ini_file parse_str parse_url passthru pathinfo print readlink realpath rewind rewinddir rmdir '+
-						'round str_ireplace str_pad str_repeat str_replace str_rot13 str_shuffle str_split '+
-						'str_word_count strcasecmp strchr strcmp strcoll strcspn strftime strip_tags stripcslashes '+
-						'stripos stripslashes stristr strlen strnatcasecmp strnatcmp strncasecmp strncmp strpbrk '+
-						'strpos strptime strrchr strrev strripos strrpos strspn strstr strtok strtolower strtotime '+
-						'strtoupper strtr strval substr substr_compare';
-
-		var keywords =	'abstract and array as break case catch cfunction class clone const continue declare default die do ' +
-						'else elseif enddeclare endfor endforeach endif endswitch endwhile extends final for foreach ' +
-						'function include include_once global goto if implements interface instanceof namespace new ' +
-						'old_function or private protected public return require require_once static switch ' +
-						'throw try use var while xor ';
-
-		var constants	= '__FILE__ __LINE__ __METHOD__ __FUNCTION__ __CLASS__';
-
-		this.regexList = [
-			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },			// one line comments
-			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },			// multiline comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },			// double quoted strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },			// single quoted strings
-			{ regex: /\$\w+/g,											css: 'variable' },			// variables
-			{ regex: new RegExp(this.getKeywords(funcs), 'gmi'),		css: 'functions' },			// common functions
-			{ regex: new RegExp(this.getKeywords(constants), 'gmi'),	css: 'constants' },			// constants
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' }			// keyword
-			];
-
-		this.forHtmlScript(SyntaxHighlighter.regexLib.phpScriptTags);
-	};
-
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['php'];
-
-	SyntaxHighlighter.brushes.Php = Brush;
-
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
-})();
 
 /*! Copyright (c) 2011 Brandon Aaron (http://brandonaaron.net)
  * Licensed under the MIT License (LICENSE.txt).
@@ -1049,9 +921,29 @@ $( document ).on( "pagebeforecreate", function() {
         <li><a href="chat.html" data-ajax="false" ><i style="color:#FEB302" class="fa fa-2x fa-comments"></i></a></li>\
     </ul>\
 </div><!-- /navbar -->	' );
-	$("div#header").html('  <h2 class="ui-title" role="heading" aria-level="1"><img style="height:  50px; width: auto; text-align: left;" alt="jQuery Mobile" src="img/mtn/logo_normal.png"/></h2><a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>');
+	$("div#header").html('  <h2 class="ui-title" role="heading" aria-level="1"><img style="height:  50px; width: auto; text-align: left;" alt="jQuery Mobile" src="img/mtn/icon.png"/></h2><a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>');
 	$("div#panel").html('	    	<ul class="jqm-list ui-alt-icon ui-nodisc-icon">\
 <li data-icon="home"><a href="index.html" data-ajax="false">Home</a></li>\
+<li><a href="chat.html" data-ajax="false"id="hd" data-theme="b" >Y\'ello Chat</a></li>\
+<li><a href="qoe.html" data-ajax="false"id="hd" data-theme="b" >Boîte à suggestions</a></li>\
+<li><a href="services.html#momo" data-ajax="false">Mobile Money</a></li>\\n\
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false">\
+	<h3>Produits & Services</h3>\
+	<ul>\
+	        		<li><a href="http://www.mtnplay.bj/shop/French/defaultindex.aspx" data-ajax="false">MTN Play</a></li>\
+        			<li><a href="services.html#asyougo" data-ajax="false">MTN Pay as you Go</a></li>\
+        			<li><a href="services.html#month" data-ajax="false">MTN Pay Monthly</a></li>\
+        			<li><a href="services.html#pratique" data-ajax="false">Services Pratiques</a></li>\
+        			<li><a href="services.html#appel" data-ajax="false">Service d\'appel</a></li>\
+        			<li><a href="services.html#message" data-ajax="false">Service message</a></li>\
+        			<li><a href="services.html#multimedia" data-ajax="false">Services Multimédias</a></li>\
+        			<li><a href="services.html#roaming" data-ajax="false">Roaming</a></li>\
+        			<li><a href="services.html#momo" data-ajax="false">Mobile Money</a></li>\
+        			<li><a href="services.html#numero" data-ajax="false">Numéros courts</a></li>\
+        			<li><a href="services.html#entreprises" data-ajax="false">Services Entreprises</a></li>\
+        			<li><a href="services.html#prestige" data-ajax="false">MTN Prestiges club</a></li>\
+	</ul>\
+</li>\
 <li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false">\
 	<h3>A propos de MTN</h3>\
 	<ul>\
@@ -1080,28 +972,7 @@ $( document ).on( "pagebeforecreate", function() {
         			<li><a href="moment.html#ev2007" data-ajax="false">Evènements 2007</a></li>\
 	</ul>\
 </li>\
-<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false">\
-	<h3>Produits & Services</h3>\
-	<ul>\
-	        		<li><a href="http://www.mtnplay.bj/shop/French/defaultindex.aspx" data-ajax="false">MTN Play</a></li>\
-        			<li><a href="services.html#asyougo" data-ajax="false">MTN Pay as you Go</a></li>\
-        			<li><a href="services.html#month" data-ajax="false">MTN Pay Monthly</a></li>\
-        			<li><a href="services.html#pratique" data-ajax="false">Services Pratiques</a></li>\
-        			<li><a href="services.html#appel" data-ajax="false">Service d\'appel</a></li>\
-        			<li><a href="services.html#message" data-ajax="false">Service message</a></li>\
-        			<li><a href="services.html#multimedia" data-ajax="false">Services Multimédias</a></li>\
-        			<li><a href="services.html#roaming" data-ajax="false">Roaming</a></li>\
-        			<li><a href="services.html#momo" data-ajax="false">Mobile Money</a></li>\
-        			<li><a href="services.html#numero" data-ajax="false">Numéros courts</a></li>\
-        			<li><a href="services.html#entreprises" data-ajax="false">Services Entreprises</a></li>\
-        			<li><a href="services.html#prestige" data-ajax="false">MTN Prestiges club</a></li>\
-	</ul>\
-</li>\
 <!--<li><a href="faq.html" data-ajax="false">FAQ</a></li>-->\
-<li><a href="tel:0022501091010">Appeler le Service Client</a></li>\
-<li><a href="tel:0022501091011">Appeler le Serveur Vocal</a></li>\
-<li><a href="chat.html" data-ajax="false"id="hd" data-theme="b" >Y\'ello Chat</a></li>\
-<li><a href="qoe.html" data-ajax="false"id="hd" data-theme="b" >Boîte à suggestions</a></li>\
 <li><a href="#" data-ajax="false">Version <span class="jqm-version"></span> WBC R&D</a></li>\
 	</ul>');
 
@@ -1151,12 +1022,12 @@ function goChat() {
 var url="http://"+host+"/ChatServer/guest/application.jsp?lang="+document.getElementById("lang").value+"&clientType=GUEST&userName="+document.getElementById("username").value +"&flag="+(new Date().getTime())+"&userEmail="
                 +document.getElementById("email").value+"&attachedData={\\\"CHATTYPE\\\": \\\""+document.getElementById("brand").value+"\\\",\\\"REGNUM\\\": \\\"111222333\\\",\\\"CUSTOMERNAME\\\": \\\"Johny Walker\\\"}"
   ;
-  
-        var ref = window.open(url, '_blank', 'location=yes');
+         window.location = url;
+        /*var ref = window.open(url, '_blank', 'location=yes');
         ref.addEventListener('loadstop', function() {
             alert("Css injection");
             ref.insertCSS({file: "css/chat.css"});
-        });
+        });*/
          //window.location="discussion.html";
 
 
@@ -1175,9 +1046,48 @@ var url="http://"+host+"/ChatServer/guest/application.jsp?lang="+document.getEle
 
 
         }
-        
+$(function (){
+    $.support.cors = true;
+$.mobile.allowCrossDomainPages = true;
+});      
+
+
+
+
+
 function goQoe(){
-    if($("#username").val()==$("#username").val()){
-        alert("of");
-    }
-}
+    data =    { 
+            nom: $('#nom').val(), 
+            contexte:  $('#qoe').find('input[name="contexte"]:checked').val(),
+            telephone: $('#telephone').val(),
+            avis: $('#avis').val()
+        };
+        console.log(data);
+         $.ajax({
+        type       : "get",
+        url        : "http://webcoom.net/mtn/sugestion/add_avi_mtn.php",
+        crossDomain : true,
+        beforeSend : function() {$.mobile.loading('show')},
+        complete   : function() {
+           
+            alert('Votre sugestion a été enrégistré avec succès.');   
+             $('#qoe').find('input[type="text"], textarea').each(function(){
+                $( this ).val("");
+            });
+            $.mobile.loading('hide');
+        
+        },
+        data       : data,
+        dataType   : 'json',
+        success    : function(response) {
+            //console.error(JSON.stringify(response));
+            //alert('Works!');
+        },
+        error      : function(error) {
+            console.error(error);
+                           
+        }
+    });   
+}  
+   
+
