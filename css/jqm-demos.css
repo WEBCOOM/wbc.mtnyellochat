@@ -585,7 +585,6 @@ ul ,li,ol{
     list-style-image: url(../img/mtn/listBullet.gif);
 }
 
-.ui-panel-inner{
-	padding:0px 12px 15px 12px ;
+#panel{
 	background-color:#f9f9f9;
 }
