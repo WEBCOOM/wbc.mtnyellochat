@@ -5,6 +5,7 @@
 }
 /* Header */
 .jqm-demos .jqm-header {
+	border-top: 0px ;
     height: 60px;
 	background: #fff;
     background-image: url("../img/mtn/topbg.jpg");
